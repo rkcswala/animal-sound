@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animal sound 🐾</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #f2f7ff;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #222;
+        }
+
+
+        .animals {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 25px;
+        }
+
+
+        .animal-btn {
+            width: 100%;
+            border: none;
+            background: white;
+            padding: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+            transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .animal-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .animal-btn img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            display: block;
+        }
+
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            h2 {
+                font-size: 25px;
+                margin-bottom: 25px;
+            }
+
+            .animals {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .animal-btn {
+                padding: 7px;
+                border-radius: 15px;
+            }
+
+            .animal-btn img {
+                border-radius: 10px;
+            }
+        }
+
+
+        @media (max-width: 350px) {
+
+            .animals {
+                grid-template-columns: 1fr;
+            }
+
+            .animal-btn img {
+                max-height: 280px;
+            }
+        }
+
+        h2 {
+            padding: 10px;
+            margin: 0;
+            background-color: #dfc7bc;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 20px 10px;
+            background: #756d6d;
+            color: white;
+            text-align: center;
+           
+        }
+
+        .footer p {
+            margin: 5px 0;
+            font-size: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .footer {
+                margin-top: 30px;
+                padding: 15px 10px;
+            }
+
+            .footer p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <h2>🎁 Gift for Gunnu 🐾</h2>
+
+
+    <div class="animals">
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/cat.wav')">
+
+            <img src="./pics/cat.png" alt="Cat">
+
+        </button>
+
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/dog.wav')">
+
+            <img src="./pics/dog.png" alt="Dog">
+
+        </button>
+
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/cow.wav')">
+
+            <img src="./pics/cow.png" alt="Cow">
+
+        </button>
+
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/mor.mp3')">
+
+            <img src="./pics/mor.png" alt="Peacock">
+
+        </button>
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/tota.mp3')">
+
+            <img src="./pics/tota.png" alt="Parrot">
+
+        </button>
+
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/bais.mp3')">
+
+            <img src="./pics/bais.png" alt="Buffalo">
+
+        </button>
+
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/chidiya.mp3')">
+
+            <img src="./pics/chidiya.png" alt="Bird">
+
+        </button>
+
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/hiran.mp3')">
+
+            <img src="./pics/hiran.jpg" alt="Deer">
+
+        </button>
+
+
+
+        <button class="animal-btn" onclick="playCatSound('./sound/tiger.mp3')">
+
+            <img src="./pics/tiger.jpg" alt="Tiger">
+
+        </button>
+
+    </div>
+
+    <footer class="footer">
+        <p>🐾 Made with ❤️ for Gunnu</p>
+        <p>© 2026 Animal Sound</p>
+        <p>design by : Rk saini ❤</p>
+    </footer>
+
+</body>
+
+</html>
+
+
+<script>
+
+    let currentSound = null;
+
+    function playCatSound(soundfile) {
+
+
+        if (currentSound) {
+            currentSound.pause();
+            currentSound.currentTime = 0;
+        }
+
+
+        currentSound = new Audio(soundfile);
+
+        currentSound.play()
+            .catch(error => {
+                console.log("Audio error:", error);
+            });
+
+
+        setTimeout(() => {
+
+            if (currentSound) {
+                currentSound.pause();
+                currentSound.currentTime = 0;
+            }
+
+        }, 5000);
+    }
+
+</script>
+
+</body>
+
+</html>
